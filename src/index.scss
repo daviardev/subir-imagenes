@@ -1,0 +1,25 @@
+:root {
+  --color-light: #e5d8bf;
+  --color-dark: #1c1c20;
+  --color-primary: #091d36;
+  --color-secondary: #394d79;
+  --font-primary: 'Poppins', sans-serif;
+  --font-weight: 300;
+  --font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
