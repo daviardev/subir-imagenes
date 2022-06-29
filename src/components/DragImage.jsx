@@ -2,39 +2,41 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "../styles/componets/DragImage.scss";
 
-const DragImage = () => {
+const DragImage = ({ setMedia, setLoading }) => {
+    const [file, setFile] = useState(null);
     const [error, setError] = useState(false);
     const [messageError, setMessageError] = useState("");
-    const [classDrag, setClassDrag] = useState("drag__image");
-    const [image, setImage] = useState(null);
-    const [file, setFile] = useState(null);
-    
-    const typesImages = ["image/png", "image/jpeg", "image/jpg"]
 
+    const [image, setImage] = useState(null);
+    const [classDrag, setClassDrag] = useState("drag__image");
+    
     const refInputFile = useRef(null);
+    const typesImages = ["image/png", "image/jpeg", "image/jpg"]
 
     const SelectImage = () => {
         refInputFile.current.click()
     }
 
     const isImageValid = (e) => {
-        if (file && typesImages.includes(file.type)) {
+        if (e && typesImages.includes(e.type)) {
             setError(false);
-
             return true;
         } else {
             setError(true);
-            setMessageError("El tipo de archivo no es válido. \nRecuerde que solo se pueden subir imágenes .")
+            setMessageError("El tipo de archivo no es válido.")
+            return false;
         }
     }
 
-    const ShowImage = (e) => {
+    const ShowImage = (file) => {
         const fileReader = new FileReader()
-        fileReader.readAsDataURL(e)
+        fileReader.readAsDataURL(file)
 
         fileReader.addEventListener("load", (e) => {
             setImage(e.target.result)
         })
+        setFile(file)
+        setMedia(file)
     }
 
     const AddImage = (e) => {
@@ -59,10 +61,21 @@ const DragImage = () => {
         }
     }
 
+    const handleSave = () => {
+		const valid = isImageValid(file)
+
+		if (valid && file) {
+			setLoading(true)
+		} else {
+			setError(true)
+			setMessageError('Suba una imagen primero.')
+		}
+	}
+
     useEffect(() => {
         setTimeout(() => {
             setError(false)
-        }, 3000)
+        }, 5000)
     }, [error])
 
     return (
@@ -94,7 +107,7 @@ const DragImage = () => {
                 </span>
             </div>
 
-            <button className="drag__action">Guardar imagen</button>
+            <button className="drag__action" onClick={handleSave}>Guardar imagen</button>
             
         </div>
         

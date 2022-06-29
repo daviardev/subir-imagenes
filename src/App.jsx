@@ -9,7 +9,6 @@ const App = () => {
     <main className="main">
       <div className="main__container">
           <Uploader />
-
           <Image />
       </div>
     </main>

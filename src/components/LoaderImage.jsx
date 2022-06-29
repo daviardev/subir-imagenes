@@ -1,6 +1,7 @@
 import React from "react";
 
-const LoaderImage = () => {
+const LoaderImage = ({ file, setFile, setLoading }) => {
+    console.log(file)
     return (
         <div className="loader">
             <h3 className="loader__title">Subiendo imagen...</h3>
