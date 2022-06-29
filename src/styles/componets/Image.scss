@@ -4,6 +4,7 @@
 	align-items: center;
 	row-gap: 20px;
 	border-top: 2px solid var(--color-dark);
+	border-top: 2px solid var(--color-primary);
 	padding-top: 40px;
 	&__title {
 		color: var(--color-ligth);
@@ -45,7 +46,7 @@
 		row-gap: 0px;
 		column-gap: 20px;
 		border-top: 0;
-		border-left: 2px solid var(--color-dark);
+		border-left: 2px solid var(--color-primary);
 		padding-top: 0px;
 		padding-left: 40px;
 		&__title {

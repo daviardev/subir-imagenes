@@ -1,4 +1,7 @@
 :root {
+  --hue: 207;
+  --sat: 90%;
+  --lig: 61%;
   --color-light: #fff;
   --color-dark: #1c1c20;
   --color-primary: #2a7baa;
@@ -18,7 +21,7 @@ body {
   margin: 0;
   font-family: var(--font-primary);
   font-weight: var(--font-weight);
-  background-color: var(--color-primary);
+  background-color: var(--color-dark);
   color: var(--color-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

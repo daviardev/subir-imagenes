@@ -8,7 +8,9 @@ const Image = () => {
         <h2 className='preview__title'>Última imagen subida</h2>
 
         <div className='preview__container'>
-            <PreviewImage src={'https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921_960_720.jpg'} />
+            <div className="preview__line">
+                <PreviewImage src={'https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921_960_720.jpg'} />
+            </div>
         </div>
     </section>
     )
