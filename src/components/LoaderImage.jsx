@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
 import useStorage from "../hooks/useStorage";
+import "../styles/componets/LoaderImage.scss";
 
 const LoaderImage = ({ file, setFile, setLoading }) => {
-    const {url, progress} = useStorage(file);
+    const {url} = useStorage(file);
 
     useEffect(() => {
         if(url) {
@@ -12,13 +12,10 @@ const LoaderImage = ({ file, setFile, setLoading }) => {
         }
     }, [url, setFile, setLoading])
     return (
-        <div className="loader">
-            <h3 className="loader__title">Subiendo imagen...</h3>
-
-            <div className="loader__progress">
-                <motion.div initial={{width: 0}} animate={{width: progress + ' %'}} className="loader__progress-bar">
-                    
-                </motion.div>
+        <div className="title__loader"><h2>Subiendo imagen</h2>
+            <div className="loader">
+                <div className="dot1"></div>
+                <div className="dot2"></div>
             </div>
         </div>
     )
