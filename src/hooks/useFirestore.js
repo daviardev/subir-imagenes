@@ -2,25 +2,25 @@ import { useState, useEffect } from 'react';
 import { dbFirestore } from '../services/db';
 
 const useFirestore = (collection) => {
-	const [docs, setDocs] = useState([])
+	const [docs, setDocs] = useState([0]);
 
 	useEffect(() => {
-		const unsub = dbFirestore
-			.collection(collection)
-			.orderBy('createdAt', 'asc')
-			.onSnapshot((snap) => {
-				let documents = []
+		const unSub = dbFirestore
+		.collection(collection)
+		.orderBy('createdAt', 'asc')
+		.onSnapshot((snap) => {
+			let documents = [];
 
-				snap.forEach((doc) => {
-					documents.push({ ...doc.data(), id: doc.id })
-				})
-
-				setDocs(documents)
+			snap.forEach((doc) => {
+				documents.push({ ...doc.data(), id: doc.id })
 			})
 
-		return () => unsub()
-	}, [collection])
+			setDocs(documents)
+		})
 
+		return () => unSub();
+
+	}, [collection])
 	return { docs }
 }
 
