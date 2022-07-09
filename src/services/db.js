@@ -1,6 +1,5 @@
-import firebase from "firebase/app";
-import "firebase/storage";
-import "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDdw1M0L_0spc3d__Yrb56kl4lJ1MfTIFc",
@@ -11,10 +10,6 @@ const firebaseConfig = {
   appId: "1:700400040809:web:f89cd6a529b39ede75dbf8"
 };
 
-firebase.initializeApp(firebaseConfig);
+let app = initializeApp(firebaseConfig);
 
-let dbStorage = firebase.storage();
-let dbFirestore = firebase.firestore();
-let timeStamp = firebase.firestore.FieldValue.serverTimestamp;
-
-export { dbStorage, dbFirestore, timeStamp }
+export let dbStorage = getStorage(app);
