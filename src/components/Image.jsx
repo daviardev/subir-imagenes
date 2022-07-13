@@ -7,8 +7,6 @@ const Image = () => {
     const [imageList, setImageList] = useState([]);
     const imageListRef = ref(dbStorage, '/');
 
-
-
     useEffect(() => {
         listAll(imageListRef).then((response) => {
             response.items.forEach((item) => {
